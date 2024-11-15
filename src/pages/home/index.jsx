@@ -7,7 +7,6 @@ import {
   TextField,
   Grid,
   List,
-  ListItem,
   ListItemAvatar,
   Avatar,
   ListItemText,
@@ -35,10 +34,14 @@ const StoreSection = styled(Box)`
 
 const EmphasizedDonationSection = styled(Paper)`
   text-align: center;
-  padding: 40px; 
-  margin: 50px 0; 
-  background-color: #ffecb3;
-  border-radius: 12px;
+  padding: 40px;
+  margin: 50px 0;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 
 const MainPage = () => {
@@ -85,27 +88,44 @@ const MainPage = () => {
   return (
     <Container maxWidth="lg">
       <MainWrapper>
-        <Typography variant="h3" align="center" gutterBottom>
-          Sur+
-        </Typography>
-        <Typography variant="body1" align="center">
-          당신의 구매가 기부 어쩌구..
+        <Box mt={16} mb={6}> 
+      <TitleWrappper
+          variant="h2"
+          align="center"
+          gutterBottom
+          style={{
+            marginTop:"32px",
+            fontFamily: 'RiaSans-ExtraBold',
+            color: '#4caf50',
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
+        >
+          잉여잉여
+        </TitleWrappper>
+        </Box>
+        <Typography
+          variant="body1"
+          align="center"
+          style={{ marginBottom: "64px", fontSize: "1.2rem", lineHeight: 1.5 }}
+        >
+          당신의 구매가 기부로 연결됩니다. 
         </Typography>
 
         {/* Donation Section */}
         <EmphasizedDonationSection elevation={3}>
-          <Typography variant="h4" color="primary" gutterBottom>
+          <Typography variant="h4" color="primary" gutterBottom style={{ fontWeight: 'bold' }}>
             누적 기부량
           </Typography>
-          <Typography variant="h3" color="secondary">
+          <Typography variant="h3" color="secondary" style={{ fontWeight: 700 }}>
             {donationAmount.toLocaleString()}원
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textSecondary" style={{ fontWeight: 500 }}>
             함께 더 나은 세상을 만들어 나가요!
           </Typography>
         </EmphasizedDonationSection>
 
         {/* Search Section */}
+        <Box mt={16} mb={16}>
         <SearchSection>
           <TextField
             label="물품 검색"
@@ -120,6 +140,7 @@ const MainPage = () => {
             검색
           </Button>
         </SearchSection>
+        </Box>
 
         {/* Search Results */}
         {searchResults.length > 0 && (
@@ -141,9 +162,9 @@ const MainPage = () => {
           </StoreSection>
         )}
 
-        {/* Current Stores Section */}
+
         <Box mt={6} mb={4}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom style={{ fontWeight: 'bold' }} >
             상점목록보기
           </Typography>
         </Box>
@@ -192,3 +213,11 @@ const MainPage = () => {
 
 export default MainPage;
 
+const TitleWrappper = styled(Typography)`
+@font-face {
+    font-family: 'RiaSans-ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/RiaSans-ExtraBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+`
