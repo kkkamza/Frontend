@@ -2,7 +2,6 @@ import styled from "@emotion/styled"
 import React, { Suspense } from "react"
 import { ErrorBoundary } from "react-error-boundary"
 import { useSearchParams } from "react-router-dom"
-import useGetProduct from "../../apis/product/useGetProduct"
 import useSearchProduct from "../../apis/product/useSearchProduct"
 
 const SearchPageContent = () => {
@@ -10,10 +9,9 @@ const SearchPageContent = () => {
   const initialSearchWord = searchParams.get("query") || ""
   console.log(initialSearchWord)
 
-  const { data: productData } = useGetProduct(1)
   const { data } = useSearchProduct(initialSearchWord)
   console.log(data)
-  console.log(productData)
+
   return (
     <Wrapper>
       {data?.map((product) => (
