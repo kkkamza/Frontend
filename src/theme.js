@@ -3,14 +3,14 @@ import { createTheme } from '@mui/material/styles'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#65c9f0',  
+      main:  '#4caf50',  
     },
     secondary: {
-      main: '#f7b32b',  
+      main: '#ff9800',
     },
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
+    fontFamily: "'NoonnuBasicGothicRegular'",
   },
 });
 
