@@ -3,18 +3,18 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchInstance } from "../instance"
 import QUERY_KEYS from "../queryKeys"
 
-async function getProduct(foodId) {
-  const response = await fetchInstance().get(`/food/${foodId}`)
+async function getProductList() {
+  const response = await fetchInstance().get("/food/list")
   return response.data
 }
 
-const useGetProduct = (foodId) => {
+const useGetProductList = () => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.PRODUCT_DETAIL, foodId],
+    queryKey: [QUERY_KEYS.PRODUCT_LIST],
     queryFn: () => getProduct(foodId),
   })
 
   return { data }
 }
 
-export default useGetProduct
+export default useGetProductList

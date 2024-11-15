@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 
 import { fetchInstance } from "../instance"
 import QUERY_KEYS from "../queryKeys"
@@ -9,7 +9,7 @@ async function getStore(marketId) {
 }
 
 const useGetStore = (marketId) => {
-  const { data } = useSuspenseQuery({
+  const { data } = useQuery({
     queryKey: [QUERY_KEYS.STORE_DETAIL, marketId],
     queryFn: () => getStore(marketId),
   })

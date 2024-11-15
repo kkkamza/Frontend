@@ -6,7 +6,7 @@ import QUERY_KEYS from "../queryKeys"
 async function getSearch(search) {
   const response = await fetchInstance().get("/food/search", {
     params: {
-      query: search,
+      requestDto: search,
     },
   })
   return response.data

@@ -3,15 +3,15 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchInstance } from "../instance"
 import QUERY_KEYS from "../queryKeys"
 
-async function getProduct(foodId) {
-  const response = await fetchInstance().get(`/food/${foodId}`)
+async function getDonate() {
+  const response = await fetchInstance().get("/main")
   return response.data
 }
 
-const useGetProduct = (foodId) => {
+const useGetProduct = () => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.PRODUCT_DETAIL, foodId],
-    queryFn: () => getProduct(foodId),
+    queryKey: [QUERY_KEYS.DONATE],
+    queryFn: () => getDonate(),
   })
 
   return { data }
