@@ -1,25 +1,25 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from "@emotion/styled"
+import { AppBar, Button, Toolbar, Typography } from "@mui/material"
+import React from "react"
+import { Link } from "react-router-dom"
 
 const NavLinks = styled.div`
   margin-left: auto;
   display: flex;
   gap: 20px;
-`;
+`
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-  };
+    localStorage.removeItem("token")
+    setIsLoggedIn(false)
+  }
 
   return (
     <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" component="div">
-          <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
+          <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
             Surplus+
           </Link>
         </Typography>
@@ -43,14 +43,14 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 회원가입
               </Button>
               <Button color="inherit" component={Link} to="/create-store">
-              상점 등록
-               </Button>
+                상점 등록
+              </Button>
             </>
           )}
         </NavLinks>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
