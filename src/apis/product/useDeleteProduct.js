@@ -6,8 +6,9 @@ async function deleteProduct(foodId) {
   return response.data
 }
 
-const useDeleteProduct = () => {
-  const { mutate, status } = useMutation(deleteProduct, {
+const useDeleteProduct = (foodId) => {
+  const { mutate, status } = useMutation({
+    mutationFn: () => deleteProduct(foodId),
     onSuccess: (data) => {
       console.log("Product successfully registered:", data)
     },

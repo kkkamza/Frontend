@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import React, { Suspense } from "react"
 import { ErrorBoundary } from "react-error-boundary"
 import { useSearchParams } from "react-router-dom"
+import useDeleteProduct from "../../apis/product/useDeleteProduct"
 import useSearchProduct from "../../apis/product/useSearchProduct"
 
 const SearchPageContent = () => {
@@ -10,7 +11,12 @@ const SearchPageContent = () => {
   console.log(initialSearchWord)
 
   const { data } = useSearchProduct(initialSearchWord)
+
   console.log(data)
+
+  const { mutate } = useDeleteProduct(1)
+
+  const test = mutate()
 
   return (
     <Wrapper>

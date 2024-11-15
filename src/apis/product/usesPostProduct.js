@@ -16,8 +16,9 @@ async function postProduct(search) {
   return response.data
 }
 
-const usePostProduct = () => {
-  const { mutate, status } = useMutation(postProduct, {
+const usePostProduct = (search) => {
+  const { mutate, status } = useMutation({
+    mutationFn: () => mutationpostProduct(search),
     onSuccess: (data) => {
       console.log("Product successfully registered:", data)
     },

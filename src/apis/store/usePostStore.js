@@ -12,8 +12,9 @@ async function postStore(store) {
   return response.data
 }
 
-const usePostStore = () => {
-  const { mutate, status } = useMutation(postStore, {
+const usePostStore = (store) => {
+  const { mutate, status } = useMutation({
+    mutationFn: () => postStore(store),
     onSuccess: (data) => {
       console.log("Store successfully registered:", data)
     },
