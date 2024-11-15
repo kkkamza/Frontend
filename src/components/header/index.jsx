@@ -16,7 +16,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   }
 
   return (
-    <AppBar position="static" color="primary">
+    <HeaderWrapper position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" component="div">
           <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
@@ -49,8 +49,14 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           )}
         </NavLinks>
       </Toolbar>
-    </AppBar>
+    </HeaderWrapper>
   )
 }
 
 export default Header
+
+const HeaderWrapper = styled(AppBar)`
+  position: fixed;
+  top: 0;
+  margin-bottom: 20px;
+`
