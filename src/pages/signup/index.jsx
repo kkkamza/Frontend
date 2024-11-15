@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Container, Typography, TextField, Button, Box } from '@mui/material';
-import styled from 'styled-components';
+import styled from "@emotion/styled"
+import { Box, Button, Container, TextField, Typography } from "@mui/material"
+import { useState } from "react"
 
 const FormWrapper = styled(Box)`
   display: flex;
@@ -8,43 +8,37 @@ const FormWrapper = styled(Box)`
   align-items: center;
   gap: 20px;
   margin-top: 50px;
-`;
+`
 
 const SignupPage = () => {
-  const [userName, setUserName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const [userName, setUserName] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSignup = () => {
-
     const requestData = {
       email,
       password,
       userName,
       phoneNumber,
-    };
+    }
 
-  
-    console.log('Signup Data:', requestData);
+    console.log("Signup Data:", requestData)
 
-
-    fetch('/join', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("/join", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestData),
     })
       .then((response) => response.json())
       .then((data) => {
-      
-        console.log('회원가입 성공:', data);
+        console.log("회원가입 성공:", data)
       })
       .catch((error) => {
-      
-        console.error('회원가입 실패:', error);
-      });
-  };
+        console.error("회원가입 실패:", error)
+      })
+  }
 
   return (
     <Container maxWidth="sm">
@@ -86,7 +80,7 @@ const SignupPage = () => {
         </Button>
       </FormWrapper>
     </Container>
-  );
-};
+  )
+}
 
-export default SignupPage;
+export default SignupPage
