@@ -1,7 +1,7 @@
+import styled from "@emotion/styled"
 import { AppBar, Button, Toolbar, Typography } from "@mui/material"
 import React from "react"
 import { Link } from "react-router-dom"
-import styled from "styled-components"
 
 const NavLinks = styled.div`
   margin-left: auto;
