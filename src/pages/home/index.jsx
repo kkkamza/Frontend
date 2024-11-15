@@ -15,6 +15,7 @@ import {
 } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import RandomBox from "../../components/randomBox"
 
 const MainWrapper = styled.div`
   padding: 80px 30px
@@ -144,6 +145,8 @@ const MainPage = () => {
             </Grid>
           </StoreSection>
         )}
+
+        <RandomBox />
 
         <Box mt={6} mb={4}>
           <Typography variant="h5" gutterBottom style={{ fontWeight: "bold" }}>
