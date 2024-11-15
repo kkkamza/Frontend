@@ -2,8 +2,9 @@ export const RouterPath = {
   root: "/",
   home: "/",
   login: "/login",
-  signup:"/signup",
+  signup: "/signup",
   payment: "/payment",
-  storeDetail:"/store",
-  createStore:"/create-store",
+  storeDetail: "/store",
+  createStore: "/create-store",
+  search: "/food/search",
 }
