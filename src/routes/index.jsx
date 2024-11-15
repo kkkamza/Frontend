@@ -8,7 +8,7 @@ import CreateStorePage from "../pages/storeCreate"
 import StoreDetailPage from "../pages/storeDetail"
 import theme from "../theme"
 
-import Header from "../components/Header"
+import Header from "../components/header"
 
 import SearchPage from "../pages/search"
 import { RouterPath } from "./path"
