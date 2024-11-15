@@ -16,10 +16,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   }
 
   return (
-    <AppBar position="static" color="primary">
+    <HeaderWrapper position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" component="div">
-          <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
+          <Link to="/" style={{ color: "#ffffff", fontWeight: "bold" }}>
             Surplus+
           </Link>
         </Typography>
@@ -27,30 +27,51 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         <NavLinks>
           {isLoggedIn ? (
             <>
-              <Button color="inherit" onClick={handleLogout}>
+              <Button onClick={handleLogout} style={{ color: "#ffffff", fontWeight: "bold" }}>
                 로그아웃
               </Button>
-              <Button color="inherit" component={Link} to="/profile">
+              <Button
+                component={Link}
+                to="/profile"
+                style={{ color: "#ffffff", fontWeight: "bold" }}
+              >
                 프로필
               </Button>
             </>
           ) : (
             <>
-              <Button color="inherit" component={Link} to="/login">
+              <Button component={Link} to="/login" style={{ color: "#ffffff", fontWeight: "bold" }}>
                 로그인
               </Button>
-              <Button color="inherit" component={Link} to="/signup">
+              <Button
+                color="#fff"
+                component={Link}
+                to="/signup"
+                style={{ color: "#ffffff", fontWeight: "bold" }}
+              >
                 회원가입
               </Button>
-              <Button color="inherit" component={Link} to="/create-store">
+              <Button
+                color="#fff"
+                component={Link}
+                to="/create-store"
+                style={{ color: "#ffffff", fontWeight: "bold" }}
+              >
                 상점 등록
               </Button>
             </>
           )}
         </NavLinks>
       </Toolbar>
-    </AppBar>
+    </HeaderWrapper>
   )
 }
 
 export default Header
+
+const HeaderWrapper = styled(AppBar)`
+  position: fixed;
+  top: 0;
+  margin-bottom: 20px;
+  z-index: 100;
+`
