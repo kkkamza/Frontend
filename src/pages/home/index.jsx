@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  Grid,
   List,
   ListItem,
   ListItemAvatar,
@@ -61,25 +60,7 @@ const MainPage = () => {
   }, [])
 
   const handleSearch = async () => {
-    try {
-      const response = await fetch("/food/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: searchQuery }),
-      })
-
-      if (!response.ok) {
-        throw new Error("검색에 실패했습니다.")
-      }
-
-      const data = await response.json()
-      setSearchResults(data)
-    } catch (error) {
-      alert("검색 중 오류가 발생했습니다.")
-      console.error(error)
-    }
+    navigate(`/food/search?query=${searchQuery}`)
   }
 
   return (
@@ -120,6 +101,7 @@ const MainPage = () => {
             검색
           </Button>
         </SearchSection>
+        <randomBox />
 
         {/* Search Results */}
         {searchResults.length > 0 && (
@@ -127,17 +109,15 @@ const MainPage = () => {
             <Typography variant="h5" gutterBottom>
               검색 결과
             </Typography>
-            <Grid container spacing={4}>
-              {searchResults.map((item) => (
-                <Grid item xs={12} sm={6} md={4} key={item.foodId}>
-                  <Paper style={{ padding: "20px", borderRadius: "8px" }} elevation={2}>
-                    <Typography variant="h6">{item.foodName}</Typography>
-                    <Typography variant="body2">상점 이름: {item.marketId}</Typography>
-                    <Typography variant="body2">별점: {item.star}점</Typography>
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
+            {searchResults.map((item) => (
+              <div item xs={12} sm={6} md={4} key={item.foodId}>
+                <Paper style={{ padding: "20px", borderRadius: "8px" }} elevation={2}>
+                  <Typography variant="h6">{item.foodName}</Typography>
+                  <Typography variant="body2">상점 이름: {item.marketId}</Typography>
+                  <Typography variant="body2">별점: {item.star}점</Typography>
+                </Paper>
+              </div>
+            ))}
           </StoreSection>
         )}
 
